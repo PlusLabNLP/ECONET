@@ -165,7 +165,8 @@ def main():
     for eval_file in ['dev']:
         model.eval()
         print("=" * 50 + "Evaluating %s" % eval_file + "="* 50)
-        eval_data = load_data(args.data_dir, "individual_%s" % eval_file, args.file_suffix)
+        #eval_data = load_data(args.data_dir, "individual_%s" % eval_file, args.file_suffix)
+        eval_data = load_data(args.data_dir, eval_file, args.file_suffix)
         if 'roberta' in args.model:
             eval_features = convert_to_features_roberta(eval_data, tokenizer, max_length=args.max_seq_length,
                                                         evaluation=True, end_to_end=True)

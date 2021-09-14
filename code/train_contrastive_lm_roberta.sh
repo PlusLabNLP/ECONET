@@ -38,7 +38,7 @@ for s in "${batchsizes[@]}"
             --num_train_epochs ${epoch}  \
             --gradient_accumulation_steps=${ga}  \
             --seed ${seed} \
-            --output_dir output/${task}_${model}_batch_${s}_lr_${l}_epochs_${epoch}_seed_${seed}_perturb_${orig_r}
+            --output_dir output/${task}_${model}_batch_${s}_lr_${l}_epochs_${epoch}_seed_${seed}_perturb_${orig_r}_cw${cst_w}
         done
     done
   done

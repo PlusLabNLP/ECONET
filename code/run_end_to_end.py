@@ -203,7 +203,7 @@ def main():
     # construct model
     if 'roberta' in args.model:
         tokenizer = RobertaTokenizer.from_pretrained(args.model, do_lower_case=args.do_lower_case)
-        if 'original' in args.load_model:
+        if "/%s/" % args.model in args.load_model:
             cache_dir = PYTORCH_PRETRAINED_ROBERTA_CACHE / 'distributed_{}'.format(args.local_rank)
             model = MultitaskClassifierRoberta.from_pretrained(args.model, cache_dir=cache_dir,
                                                                mlp_hid=args.mlp_hid_size)
@@ -214,7 +214,7 @@ def main():
                                                                mlp_hid=args.mlp_hid_size)
     else:
         tokenizer = BertTokenizer.from_pretrained(args.model, do_lower_case=args.do_lower_case)
-        if 'original' in args.load_model:
+        if "/%s/" % args.model in args.load_model:
             cache_dir = PYTORCH_PRETRAINED_BERT_CACHE / 'distributed_{}'.format(args.local_rank)
             model = MultitaskClassifier.from_pretrained(args.model, cache_dir=cache_dir,
                                                         mlp_hid=args.mlp_hid_size)

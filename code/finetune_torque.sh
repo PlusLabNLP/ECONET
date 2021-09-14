@@ -11,10 +11,10 @@ device="0"
 checkpoint=3
 
 root="output"
-pretrained_dir="contrastive_lm_roberta-large_batch_8_lr_1e-6_epochs_10_seed_7_perturb_0.5_cw1.0"
-#pretrained_dir="original"
+pretrained_dir="contrastive_lm_${model}_batch_8_lr_1e-6_epochs_10_seed_7_perturb_0.5_cw1.0"
+#pretrained_dir="${model}"
 
-suffix="_end2end_final.json"
+suffix=".json"
 
 for ep in "${epochs[@]}"
 do
@@ -39,6 +39,6 @@ do
     --num_train_epochs ${ep}  \
     --gradient_accumulation_steps=${ga}  \
     --seed ${seed} \
-    --output_dir output/${pretrained_dir}_${ep}_${model}_batch_${batchsize}_lr_${lr}_epochs_${ep}_seed_${seed}
+    --output_dir ./output/torque/${pretrained_dir}_${checkpoint}_ft_${model}_batch_${batchsize}_lr_${lr}_epochs_${ep}_seed_${seed}
   done
 done
