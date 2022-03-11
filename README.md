@@ -1,6 +1,6 @@
 This repo contains the instructions on how to reproduce results in the paper.
 
-## update on Mar 10th, 2022. 
+## Updates on March 10th, 2022. 
 People are requesting data pre-processing code for MATRES and TBD pickle files. The original pickles files were produced by the internal NLP annotation tools used by the Information Sciences Institute at USC. Due to contract restriction, we are not able to make those tools public. However, we made effort to replicate those files using public tools: https://github.com/rujunhan/TEDataProcessing. There are some unavoidable but minor differences between the two versions.
 
 ## 0. Environment
